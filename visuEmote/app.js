@@ -4,9 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var analyze = require('./routes/analyze');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+var fs = require('fs');
 
 var app = express();
 
@@ -58,3 +61,27 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+var textFile = 'hp2.txt';
+var outFile = 'sentiments.txt';
+var text = ""; 
+
+// fs.readFile(textFile, function(err, info) { 
+    
+//     text = info.toString(); 
+//     // console.log(text); 
+//     textArray = text.split(" ");
+
+//     analyze.getSentiments(text, Math.floor(textArray.length / 5000), function(result) {
+
+//         fs.writeFile(outFile, JSON.stringify(result).replace(/\"([^(\")"]+)\":/g,"$1:"), function(err) {
+//             if (err) { console.log("fs error: ", err); }
+//             console.log("file saved"); 
+//         })
+//         // console.log(result); 
+//     })
+// }); 
+ 
+
+
+
